@@ -330,10 +330,10 @@ if "current_user" in st.session_state:
                                             new_stage = st.selectbox("Move to Stage", [s for s in all_stages if s != app["stage"]], key=f"move_{app_id}_{stage}")
                                             if st.button("Move", key=f"move_btn_{app_id}_{stage}"):
                                                 st.session_state.applications[app_id]["stage"] = new_stage
-                                                st.experimental_rerun()
+                                                st.rerun()
                                         st.markdown("---")
 
 if st.button("Logout"):
     if "current_user" in st.session_state:
         del st.session_state.current_user
-    st.experimental_rerun()
+    st.rerun()
